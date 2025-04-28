@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Masters 2025 - Player Scorecard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <h1>Masters 2025 - Player Scorecard</h1>
+
+  <!-- Add player selection dropdown -->
+  <section id="player-selection">
+    <div class="player-selector">
+      <label for="player-dropdown">Select Player:</label>
+      <select id="player-dropdown">
+        <option value="">-- Select a Player --</option>
+        <!-- Players will be populated by JavaScript -->
+      </select>
+    </div>
+  </section>
+
+  <section id="player-header">
+    <img id="player-img" src="/Users/khatran/Desktop/GDE426 - Final Project/playerImages/ScottieS.jpeg" alt="Player Image">
+    <div>
+      <h2 id="player-name">Scottie Scheffler</h2>
+      <p id="player-country">🇺🇸 United States</p>
+      <p id="player-desc">World No. 1 golfer known for his consistent performance on the PGA Tour.</p>
+    </div>
+  </section>
+
+  <section id="round-and-summary">
+    <div id="round-select">
+      <label for="round-dropdown">Select Round:</label>
+      <select id="round-dropdown">
+        <option value="1">Round 1</option>
+        <option value="2">Round 2</option>
+        <option value="3">Round 3</option>
+        <option value="4">Round 4</option>
+      </select>
+    </div>
+
+    <div id="summary-card">
+      <div class="summary-cell">
+        <div class="label">Position</div>
+        <div id="player-position" class="value">1</div>
+      </div>
+      <div class="summary-cell">
+        <div class="label">Total</div>
+        <div id="player-total" class="value" style="color: #b22222;">-11</div>
+      </div>
+      <div class="summary-cell">
+        <div class="label">Thru</div>
+        <div id="player-thru" class="value">F</div>
+      </div>
+    </div>
+  </section>
+
+  <table id="scorecard" aria-label="Player Scorecard Table">
+    <thead>
+      <tr>
+        <th>Hole</th>
+        <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th>
+        <th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th>
+        <th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="par-row"><td>Par</td></tr>
+      <tr id="score-row"><td>R1</td></tr>
+    </tbody>
+  </table>
+  
+  <section id="hole-viewer">
+    <h2>Hole <span id="current-hole">1</span>: <span id="hole-name">Tea Olive</span></h2>
+    <div id="hole-navigation">
+      <button id="prev-hole" class="hole-nav-btn">← Previous</button>
+      <button id="next-hole" class="hole-nav-btn">Next →</button>
+    </div>
+    <img id="hole-image" src="/path/to/hole1.jpg" alt="Augusta National Hole 1" class="hole-image">
+    <p id="hole-description">The Masters requires precision from the first shot on No. 1...</p>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
