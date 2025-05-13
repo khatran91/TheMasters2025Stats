@@ -5,19 +5,21 @@
   <title>Masters 2025 - Player Scorecard</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
   <h1>Masters 2025 - Player Scorecard</h1>
 
-  <!-- Add player selection dropdown -->
-  <section id="player-selection">
-    <div class="player-selector">
-      <label for="player-dropdown">Select Player:</label>
-      <select id="player-dropdown">
-        <option value="">-- Select a Player --</option>
-        <!-- Players will be populated by JavaScript -->
-      </select>
+  <section id="player-leaderboard">
+    <div class="leaderboard-header">
+      <div class="leaderboard-nav">
+        <button id="leaderboard-prev" class="leaderboard-nav-btn">&#9664;</button>
+        <button id="leaderboard-next" class="leaderboard-nav-btn">&#9654;</button>
+      </div>
+    </div>
+  
+    <div class="leaderboard-container">
     </div>
   </section>
 
@@ -80,7 +82,81 @@
       <button id="next-hole" class="hole-nav-btn">Next →</button>
     </div>
     <img id="hole-image" src="/path/to/hole1.jpg" alt="Augusta National Hole 1" class="hole-image">
-    <p id="hole-description">The Masters requires precision from the first shot on No. 1...</p>
+    <p id="hole-description"></p>
+  </section>
+
+  <section id="hole-stats">
+    <h2>2025 Tournament Hole Statistics</h2>
+    
+    <div class="stats-container">
+      <!-- Tab navigation -->
+      <div class="stats-tabs">
+        <button class="tab-btn active" data-tab="scoring">Scoring Averages</button>
+        <button class="tab-btn" data-tab="difficulty">Difficulty Ranking</button>
+        <button class="tab-btn" data-tab="shot-dist">Shot Distribution</button>
+      </div>
+      
+      <!-- Scoring Averages Tab -->
+      <div id="scoring" class="tab-content active">
+        <div class="chart-container">
+          <canvas id="scoringChart"></canvas>
+        </div>
+        <table class="stats-table">
+          <thead>
+            <tr>
+              <th>Hole</th>
+              <th>Round 1</th>
+              <th>Round 2</th>
+              <th>Round 3</th>
+              <th>Round 4</th>
+              <th>Tournament Avg</th>
+            </tr>
+          </thead>
+          <tbody id="scoring-data">
+            <!-- Data will be populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Difficulty Ranking Tab -->
+      <div id="difficulty" class="tab-content">
+        <div class="chart-container">
+          <canvas id="difficultyChart"></canvas>
+        </div>
+        <div class="difficulty-grid">
+          <!-- Data will be populated by JavaScript -->
+        </div>
+      </div>
+      
+      <!-- Shot Distribution Tab -->
+      <div id="shot-dist" class="tab-content">
+        <div class="chart-container shot-dist-charts">
+          <div class="shot-dist-chart">
+            <canvas id="shotDistChart1"></canvas>
+            <p>Round 1</p>
+          </div>
+          <div class="shot-dist-chart">
+            <canvas id="shotDistChart2"></canvas>
+            <p>Round 2</p>
+          </div>
+          <div class="shot-dist-chart">
+            <canvas id="shotDistChart3"></canvas>
+            <p>Round 3</p>
+          </div>
+          <div class="shot-dist-chart">
+            <canvas id="shotDistChart4"></canvas>
+            <p>Round 4</p>
+          </div>
+        </div>
+        <div class="legend">
+          <div class="legend-item"><span class="color-double-bogey"></span> Double Bogeys (+2)</div>
+          <div class="legend-item"><span class="color-bogey"></span> Bogeys (+1)</div>
+          <div class="legend-item"><span class="color-par"></span> Pars (0)</div>
+          <div class="legend-item"><span class="color-birdie"></span> Birdies (-1)</div>
+          <div class="legend-item"><span class="color-eagle"></span> Eagles (-2)</div>
+        </div>
+      </div>
+    </div>
   </section>
   <script src="script.js"></script>
 </body>
